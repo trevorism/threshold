@@ -5,9 +5,9 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/trevorism/threshold)
 ![GitHub top language](https://img.shields.io/github/languages/top/trevorism/threshold)
 
-Threshold allows for users to set criteria for metrics. 
+Threshold allows for users to set criteria for metrics and test values against the thresholds.
 
-Metrics which satisfy the criteria create notifications.
+Current Version: 0.1.0
 
 ## How to Build
 `gradle clean build`

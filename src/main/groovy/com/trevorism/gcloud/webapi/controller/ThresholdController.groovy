@@ -1,5 +1,6 @@
 package com.trevorism.gcloud.webapi.controller
 
+import com.trevorism.gcloud.model.MetricRequest
 import com.trevorism.gcloud.model.MetricThreshold
 import com.trevorism.gcloud.service.DefaultThresholdService
 import com.trevorism.gcloud.service.ThresholdService
@@ -28,7 +29,7 @@ class ThresholdController {
     @Secure
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    MetricThreshold create(MetricThreshold threshold){
+    MetricThreshold create(MetricThreshold threshold) {
         service.create(threshold)
     }
 
@@ -37,15 +38,39 @@ class ThresholdController {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    MetricThreshold getById(@PathParam("id") String id){
+    MetricThreshold getById(@PathParam("id") String id) {
         service.getById(id)
     }
 
     @ApiOperation(value = "Get a list of all Thresholds")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    List<MetricThreshold> list(){
+    List<MetricThreshold> list() {
         service.list()
+    }
+
+    @ApiOperation(value = "Get a list of all Thresholds with the given name")
+    @GET
+    @Path("{name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    List<MetricThreshold> findMetrics(@PathParam("name") String name) {
+        service.getByName(name)
+    }
+
+    @ApiOperation(value = "Evaluate the named threshold against the value")
+    @GET
+    @Path("{name}/{value}")
+    @Produces(MediaType.APPLICATION_JSON)
+    List<MetricThreshold> evalutateMetric(@PathParam("name") String name, @PathParam("name") String value) {
+        service.evaluateThreshold(name, Double.valueOf(value))
+    }
+
+    @ApiOperation(value = "Evaluate the named threshold against the value")
+    @POST
+    @Path("{name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    List<MetricThreshold> evalutateMetric(@PathParam("name") String name, MetricRequest metricRequest) {
+        service.evaluateThreshold(name, metricRequest.metricValue)
     }
 
     @ApiOperation(value = "Update a Button **Secure")
@@ -64,7 +89,7 @@ class ThresholdController {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    MetricThreshold delete(@PathParam("id") String id){
+    MetricThreshold delete(@PathParam("id") String id) {
         service.delete(id)
     }
 }

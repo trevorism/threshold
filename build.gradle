@@ -57,13 +57,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
-
 appengine {
     deploy {
         projectId = "trevorism-gcloud"
         stopPreviousVersion = true
         promote = true
-        version = "0-0-1"
+        version = "0-1-0"
     }
 }
 

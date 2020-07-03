@@ -57,6 +57,25 @@ class DefaultThresholdServiceTest {
         assert !service.delete("blah")
     }
 
+    @Test
+    void testGetByName(){
+        assert service.getByName("test")
+        assert service.getByName("heartbeat")
+        assert !service.getByName("blah")
+    }
+
+    @Test
+    void testEvaluateThreshold(){
+        assert service.evaluateThreshold("test", 8692.32)
+        assert service.evaluateThreshold("test", 9000)
+        assert !service.evaluateThreshold("test", 9692.32)
+
+        assert service.evaluateThreshold("heartbeat", 138)
+        assert service.evaluateThreshold("heartbeat", 130)
+        assert !service.evaluateThreshold("heartbeat", 122)
+
+    }
+
     Repository<MetricThreshold> createMockRepository() {
         return new Repository<MetricThreshold>() {
 
