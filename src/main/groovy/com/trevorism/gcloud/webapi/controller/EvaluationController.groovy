@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType
 
 
 @Api("Evaluation Operations")
-@Path("/evaluate")
+@Path("/evaluation")
 class EvaluationController {
 
     private ThresholdService service = new DefaultThresholdService()
