@@ -1,6 +1,7 @@
 package com.trevorism.gcloud.webapi.controller
 
 import com.trevorism.gcloud.model.MetricThreshold
+import com.trevorism.gcloud.service.DefaultThresholdService
 import com.trevorism.gcloud.service.ThresholdService
 import com.trevorism.secure.Secure
 import io.swagger.annotations.Api
@@ -20,7 +21,7 @@ import javax.ws.rs.core.MediaType
 @Path("/threshold")
 class ThresholdController {
 
-    private ThresholdService service
+    private ThresholdService service = new DefaultThresholdService()
 
     @ApiOperation(value = "Create a new Threshold **Secure")
     @POST
