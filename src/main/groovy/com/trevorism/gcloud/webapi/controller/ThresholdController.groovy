@@ -49,30 +49,6 @@ class ThresholdController {
         service.list()
     }
 
-    @ApiOperation(value = "Get a list of all Thresholds with the given name")
-    @GET
-    @Path("{name}")
-    @Produces(MediaType.APPLICATION_JSON)
-    List<MetricThreshold> findMetrics(@PathParam("name") String name) {
-        service.getByName(name)
-    }
-
-    @ApiOperation(value = "Evaluate the named threshold against the value")
-    @GET
-    @Path("{name}/{value}")
-    @Produces(MediaType.APPLICATION_JSON)
-    List<MetricThreshold> evalutateMetric(@PathParam("name") String name, @PathParam("name") String value) {
-        service.evaluateThreshold(name, Double.valueOf(value))
-    }
-
-    @ApiOperation(value = "Evaluate the named threshold against the value")
-    @POST
-    @Path("{name}")
-    @Produces(MediaType.APPLICATION_JSON)
-    List<MetricThreshold> evalutateMetric(@PathParam("name") String name, MetricRequest metricRequest) {
-        service.evaluateThreshold(name, metricRequest.metricValue)
-    }
-
     @ApiOperation(value = "Update a Button **Secure")
     @PUT
     @Path("{id}")
