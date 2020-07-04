@@ -33,7 +33,6 @@ class DefaultThresholdService implements ThresholdService{
 
     @Override
     MetricThreshold update(String id, MetricThreshold metricThreshold) {
-        metricThreshold = ThresholdValidator.validate(metricThreshold)
         repository.update(id, metricThreshold)
     }
 

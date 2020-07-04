@@ -49,7 +49,7 @@ class ThresholdController {
         service.list()
     }
 
-    @ApiOperation(value = "Update a Button **Secure")
+    @ApiOperation(value = "Update a Threshold **Secure")
     @PUT
     @Path("{id}")
     @Secure
@@ -59,7 +59,7 @@ class ThresholdController {
         service.update(id, button)
     }
 
-    @ApiOperation(value = "Delete a Button with the {name} **Secure")
+    @ApiOperation(value = "Delete a Threshold with the {id} **Secure")
     @DELETE
     @Secure
     @Path("{id}")
