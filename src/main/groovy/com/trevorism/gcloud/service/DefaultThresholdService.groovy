@@ -22,7 +22,7 @@ class DefaultThresholdService implements ThresholdService{
     @Override
     List<MetricThreshold> getByName(String name) {
         repository.list().findAll{
-            it.name == name
+            it.name.toLowerCase() == name.toLowerCase()
         }
     }
 
