@@ -9,5 +9,7 @@ Threshold allows for users to set criteria for metrics and test values against t
 
 Current Version: 0.2.0
 
+Deployed to [Threshold](https://threshold-dot-trevorism-gcloud.appspot.com)
+
 ## How to Build
 `gradle clean build`
