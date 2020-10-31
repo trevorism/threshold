@@ -4,6 +4,7 @@ import com.trevorism.gcloud.model.MetricRequest
 import com.trevorism.gcloud.model.MetricThreshold
 import com.trevorism.gcloud.service.DefaultThresholdService
 import com.trevorism.gcloud.service.ThresholdService
+import com.trevorism.secure.Roles
 import com.trevorism.secure.Secure
 import io.swagger.annotations.Api
 import io.swagger.annotations.ApiOperation
@@ -26,14 +27,14 @@ class ThresholdController {
 
     @ApiOperation(value = "Create a new Threshold **Secure")
     @POST
-    @Secure
+    @Secure(Roles.SYSTEM)
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     MetricThreshold create(MetricThreshold threshold) {
         service.create(threshold)
     }
 
-    @ApiOperation(value = "View a Threshold with the {id}")
+    @ApiOperation(value = "View a Threshold with the {id} **Secure")
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -42,7 +43,7 @@ class ThresholdController {
         service.getById(id)
     }
 
-    @ApiOperation(value = "Get a list of all Thresholds")
+    @ApiOperation(value = "Get a list of all Thresholds **Secure")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     List<MetricThreshold> list() {
@@ -52,7 +53,7 @@ class ThresholdController {
     @ApiOperation(value = "Update a Threshold **Secure")
     @PUT
     @Path("{id}")
-    @Secure
+    @Secure(Roles.SYSTEM)
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     MetricThreshold update(@PathParam("id") String id, MetricThreshold button) {
@@ -61,7 +62,7 @@ class ThresholdController {
 
     @ApiOperation(value = "Delete a Threshold with the {id} **Secure")
     @DELETE
-    @Secure
+    @Secure(Roles.SYSTEM)
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
