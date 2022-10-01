@@ -1,6 +1,9 @@
 package com.trevorism.gcloud.service
 
 import com.trevorism.data.Repository
+import com.trevorism.data.model.filtering.ComplexFilter
+import com.trevorism.data.model.paging.PageRequest
+import com.trevorism.data.model.sorting.ComplexSort
 import com.trevorism.gcloud.model.MetricThreshold
 import org.junit.Before
 import org.junit.Test
@@ -138,6 +141,21 @@ class DefaultThresholdServiceTest {
             @Override
             void ping() {
 
+            }
+
+            @Override
+            List<MetricThreshold> filter(ComplexFilter complexFilter) {
+                return null
+            }
+
+            @Override
+            List<MetricThreshold> page(PageRequest pageRequest) {
+                return null
+            }
+
+            @Override
+            List<MetricThreshold> sort(ComplexSort complexSort) {
+                return null
             }
         }
     }

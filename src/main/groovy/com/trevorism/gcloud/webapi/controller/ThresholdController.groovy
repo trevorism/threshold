@@ -1,6 +1,5 @@
 package com.trevorism.gcloud.webapi.controller
 
-import com.trevorism.gcloud.model.MetricRequest
 import com.trevorism.gcloud.model.MetricThreshold
 import com.trevorism.gcloud.service.DefaultThresholdService
 import com.trevorism.gcloud.service.ThresholdService
