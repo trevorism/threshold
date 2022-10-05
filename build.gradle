@@ -52,7 +52,7 @@ dependencies {
     implementation 'io.swagger:swagger-jersey2-jaxrs:1.6.6'
 
     implementation 'com.trevorism:secure-utils:4.0.0'
-    implementation 'com.trevorism:datastore-client:2.5.0'
+    implementation 'com.trevorism:datastore-client:2.7.0'
 
     acceptanceImplementation 'io.cucumber:cucumber-groovy:4.7.1'
 
