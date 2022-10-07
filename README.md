@@ -6,9 +6,9 @@
 
 Threshold allows for users to set criteria for metrics and test values against the thresholds.
 
-Current Version: 0.3.0
+Current Version: 0.4.0
 
-Deployed to [Threshold](https://threshold-dot-trevorism-gcloud.appspot.com)
+Deployed to [Threshold](https://threshold.action.trevorism.com)
 
 ## How to Build
 `gradle clean build`
