@@ -5,15 +5,15 @@ import com.trevorism.data.model.filtering.ComplexFilter
 import com.trevorism.data.model.paging.PageRequest
 import com.trevorism.data.model.sorting.ComplexSort
 import com.trevorism.gcloud.model.MetricThreshold
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 
 class DefaultThresholdServiceTest {
 
     private DefaultThresholdService service
 
-    @Before
+    @BeforeEach
     void setup(){
         service = new DefaultThresholdService()
         service.repository = createMockRepository()

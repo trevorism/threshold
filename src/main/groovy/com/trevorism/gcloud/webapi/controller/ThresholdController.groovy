@@ -5,67 +5,51 @@ import com.trevorism.gcloud.service.DefaultThresholdService
 import com.trevorism.gcloud.service.ThresholdService
 import com.trevorism.secure.Roles
 import com.trevorism.secure.Secure
-import io.swagger.annotations.Api
-import io.swagger.annotations.ApiOperation
+import io.micronaut.http.MediaType
+import io.micronaut.http.annotation.*
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.tags.Tag
 
-import javax.ws.rs.Consumes
-import javax.ws.rs.DELETE
-import javax.ws.rs.GET
-import javax.ws.rs.POST
-import javax.ws.rs.PUT
-import javax.ws.rs.Path
-import javax.ws.rs.PathParam
-import javax.ws.rs.Produces
-import javax.ws.rs.core.MediaType
-
-@Api("Threshold Operations")
-@Path("/threshold")
+@Controller("/threshold")
 class ThresholdController {
 
     private ThresholdService service = new DefaultThresholdService()
 
-    @ApiOperation(value = "Create a new Threshold **Secure")
-    @POST
+    @Tag(name = "Threshold Operations")
+    @Operation(summary = "Create a new Threshold **Secure")
     @Secure(Roles.SYSTEM)
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    MetricThreshold create(MetricThreshold threshold) {
+    @Post(value = "/", produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
+    MetricThreshold create(@Body MetricThreshold threshold) {
         service.create(threshold)
     }
 
-    @ApiOperation(value = "View a Threshold with the {id} **Secure")
-    @GET
-    @Path("{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    MetricThreshold getById(@PathParam("id") String id) {
+    @Tag(name = "Threshold Operations")
+    @Operation(summary = "View a Threshold with the {id} **Secure")
+    @Get(value = "{id}", produces = MediaType.APPLICATION_JSON)
+    MetricThreshold getById(String id) {
         service.getById(id)
     }
 
-    @ApiOperation(value = "Get a list of all Thresholds **Secure")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    @Tag(name = "Threshold Operations")
+    @Operation(summary = "Get a list of all Thresholds **Secure")
+    @Get(value = "/", produces = MediaType.APPLICATION_JSON)
     List<MetricThreshold> list() {
         service.list()
     }
 
-    @ApiOperation(value = "Update a Threshold **Secure")
-    @PUT
-    @Path("{id}")
+    @Tag(name = "Threshold Operations")
+    @Operation(summary = "Update a Threshold **Secure")
     @Secure(Roles.SYSTEM)
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    MetricThreshold update(@PathParam("id") String id, MetricThreshold button) {
+    @Put(value = "{id}", produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
+    MetricThreshold update(String id, @Body MetricThreshold button) {
         service.update(id, button)
     }
 
-    @ApiOperation(value = "Delete a Threshold with the {id} **Secure")
-    @DELETE
+    @Tag(name = "Threshold Operations")
+    @Operation(summary = "Delete a Threshold with the {id} **Secure")
     @Secure(Roles.SYSTEM)
-    @Path("{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    MetricThreshold delete(@PathParam("id") String id) {
+    @Delete(value = "{id}", produces = MediaType.TEXT_PLAIN)
+    MetricThreshold delete(String id) {
         service.delete(id)
     }
 }

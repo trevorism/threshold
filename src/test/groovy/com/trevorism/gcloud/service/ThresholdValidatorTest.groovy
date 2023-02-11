@@ -2,7 +2,9 @@ package com.trevorism.gcloud.service
 
 import com.trevorism.gcloud.error.ThresholdCreationException
 import com.trevorism.gcloud.model.MetricThreshold
-import org.junit.Test
+import org.junit.jupiter.api.Test
+
+import static org.junit.jupiter.api.Assertions.assertThrows
 
 class ThresholdValidatorTest {
 
@@ -14,18 +16,19 @@ class ThresholdValidatorTest {
         assert ThresholdValidator.validate(new MetricThreshold(name: "test4", value: 4.4, operator: ">"))
     }
 
-    @Test(expected = ThresholdCreationException)
+    @Test
     void testInvalidName() {
-        assert ThresholdValidator.validate(new MetricThreshold(value: 84, operator: "="))
+        assertThrows(ThresholdCreationException, () -> {ThresholdValidator.validate(new MetricThreshold(value: 84, operator: "=")) })
     }
 
-    @Test(expected = ThresholdCreationException)
+    @Test
     void testInvalidOperator() {
-        assert ThresholdValidator.validate(new MetricThreshold(name: "test", value: 0, operator: "!=="))
+        assertThrows(ThresholdCreationException, () -> {ThresholdValidator.validate(new MetricThreshold(name: "test", value: 0, operator: "!==")) })
     }
 
-    @Test(expected = ThresholdCreationException)
+    @Test
     void testInvalidValue() {
-        assert ThresholdValidator.validate(new MetricThreshold(name: "test", value: null, operator: "!="))
+        assertThrows(ThresholdCreationException, () -> {ThresholdValidator.validate(new MetricThreshold(name: "test", value: null, operator: "!=")) })
+
     }
 }

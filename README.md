@@ -6,7 +6,7 @@
 
 Threshold allows for users to set criteria for metrics and test values against the thresholds.
 
-Current Version: 0.4.0
+Current Version: 0.5.0
 
 Deployed to [Threshold](https://threshold.action.trevorism.com)
 
