@@ -48,7 +48,7 @@ class ThresholdController {
     @Tag(name = "Threshold Operations")
     @Operation(summary = "Delete a Threshold with the {id} **Secure")
     @Secure(Roles.SYSTEM)
-    @Delete(value = "{id}", produces = MediaType.TEXT_PLAIN)
+    @Delete(value = "{id}", produces = MediaType.APPLICATION_JSON)
     MetricThreshold delete(String id) {
         service.delete(id)
     }
