@@ -21,6 +21,7 @@ class Application {
     private static final Logger log = LoggerFactory.getLogger( Application )
 
     static void main(String[] args) {
+        log.info("Started Threshold app.")
         Micronaut.run(Application, args)
     }
 }
