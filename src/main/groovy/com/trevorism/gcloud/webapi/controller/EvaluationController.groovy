@@ -20,7 +20,7 @@ class EvaluationController {
     private ThresholdService service = new DefaultThresholdService()
 
     @Tag(name = "Evaluation Operations")
-    @Operation(summary = "Get a list of all Thresholds with the given name")
+    @Operation(summary = "Get a list of all Thresholds with the given name **Secure")
     @Get(value = "{name}", produces = MediaType.APPLICATION_JSON)
     @Secure(value = Roles.USER, allowInternal = true)
     List<MetricThreshold> findMetrics(String name) {
@@ -28,7 +28,7 @@ class EvaluationController {
     }
 
     @Tag(name = "Evaluation Operations")
-    @Operation(summary = "Evaluate the named threshold against the value")
+    @Operation(summary = "Evaluate the named threshold against the value **Secure")
     @Get(value = "{name}/{value}", produces = MediaType.APPLICATION_JSON)
     @Secure(value = Roles.USER, allowInternal = true)
     List<MetricThreshold> evalutateMetric(String name, String value) {
@@ -36,7 +36,7 @@ class EvaluationController {
     }
 
     @Tag(name = "Evaluation Operations")
-    @Operation(summary = "Evaluate the named threshold against the value")
+    @Operation(summary = "Evaluate the named threshold against the value **Secure")
     @Post(value = "{name}", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
     @Secure(value = Roles.USER, allowInternal = true)
     List<MetricThreshold> evalutateMetric(String name, @Body MetricRequest metricRequest) {
