@@ -4,9 +4,12 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/trevorism/threshold)
 ![GitHub top language](https://img.shields.io/github/languages/top/trevorism/threshold)
 
-Threshold allows for users to set criteria for metrics and test values against the thresholds.
+Threshold allows users to establish KPIs and evaluate current state over a REST interface.
 
-Current Version: 0.5.0
+Creating a threshold will add an endpoint that can be checked by clients of the service by creating an evaluation.
+One can create multiple thresholds with the same name to evaluate complex situations.
+
+Current Version: 0.6.0
 
 Deployed to [Threshold](https://threshold.action.trevorism.com)
 

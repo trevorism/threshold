@@ -5,7 +5,7 @@ import groovy.transform.ToString
 @ToString
 class MetricThreshold {
 
-    String id //must be a long number
+    String id
     String name
     String description
     String operator

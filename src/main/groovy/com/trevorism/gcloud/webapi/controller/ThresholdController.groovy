@@ -26,6 +26,7 @@ class ThresholdController {
     @Tag(name = "Threshold Operations")
     @Operation(summary = "View a Threshold with the {id} **Secure")
     @Get(value = "{id}", produces = MediaType.APPLICATION_JSON)
+    @Secure(Roles.USER)
     MetricThreshold getById(String id) {
         service.getById(id)
     }
@@ -33,6 +34,7 @@ class ThresholdController {
     @Tag(name = "Threshold Operations")
     @Operation(summary = "Get a list of all Thresholds **Secure")
     @Get(value = "/", produces = MediaType.APPLICATION_JSON)
+    @Secure(Roles.USER)
     List<MetricThreshold> list() {
         service.list()
     }

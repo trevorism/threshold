@@ -145,7 +145,7 @@ class DefaultThresholdServiceTest {
 
             @Override
             List<MetricThreshold> filter(ComplexFilter complexFilter) {
-                return null
+                return list().findAll{ it.name.toLowerCase() == complexFilter.getSimpleFilters()[0].value}
             }
 
             @Override

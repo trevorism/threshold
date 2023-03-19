@@ -2,6 +2,9 @@ package com.trevorism.gcloud.service
 
 import com.trevorism.data.PingingDatastoreRepository
 import com.trevorism.data.Repository
+import com.trevorism.data.model.filtering.FilterBuilder
+import com.trevorism.data.model.filtering.FilterConstants
+import com.trevorism.data.model.filtering.SimpleFilter
 import com.trevorism.gcloud.model.MetricThreshold
 
 class DefaultThresholdService implements ThresholdService{
@@ -21,9 +24,7 @@ class DefaultThresholdService implements ThresholdService{
 
     @Override
     List<MetricThreshold> getByName(String name) {
-        repository.list().findAll{
-            it.name.toLowerCase() == name.toLowerCase()
-        }
+        repository.filter(new FilterBuilder().addFilter(new SimpleFilter("name", FilterConstants.OPERATOR_EQUAL, name)).build())
     }
 
     @Override
@@ -53,7 +54,7 @@ class DefaultThresholdService implements ThresholdService{
         return result
     }
 
-    boolean thresholdTriggered(double metricValue, String operator, double thresholdValue) {
+    private static boolean thresholdTriggered(double metricValue, String operator, double thresholdValue) {
         if(operator == "=" || operator == "=="){
             return metricValue == thresholdValue
         }
