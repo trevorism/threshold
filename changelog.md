@@ -1,3 +1,7 @@
+## 0.7.0
+
+Improve bean wiring and upgrade dependencies
+
 ## 0.6.0
 
 Add security to unsecured endpoints and improve docs.

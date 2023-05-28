@@ -6,10 +6,16 @@ import com.trevorism.data.model.filtering.FilterBuilder
 import com.trevorism.data.model.filtering.FilterConstants
 import com.trevorism.data.model.filtering.SimpleFilter
 import com.trevorism.gcloud.model.MetricThreshold
+import com.trevorism.https.SecureHttpClient
 
+@jakarta.inject.Singleton
 class DefaultThresholdService implements ThresholdService{
 
-    private Repository<MetricThreshold> repository = new PingingDatastoreRepository<>(MetricThreshold)
+    private Repository<MetricThreshold> repository
+
+    DefaultThresholdService(SecureHttpClient secureHttpClient){
+        repository = new PingingDatastoreRepository<>(MetricThreshold, secureHttpClient)
+    }
 
     @Override
     MetricThreshold create(MetricThreshold metricThreshold) {

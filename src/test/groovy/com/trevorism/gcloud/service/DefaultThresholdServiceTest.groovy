@@ -88,11 +88,6 @@ class DefaultThresholdServiceTest {
             }
 
             @Override
-            List<MetricThreshold> list(String s) {
-                list()
-            }
-
-            @Override
             MetricThreshold get(String s) {
                 if(s == "1")
                     return list()[0]
@@ -100,17 +95,7 @@ class DefaultThresholdServiceTest {
             }
 
             @Override
-            MetricThreshold get(String s, String s1) {
-                get(s)
-            }
-
-            @Override
             MetricThreshold create(MetricThreshold metricThreshold) {
-                return metricThreshold
-            }
-
-            @Override
-            MetricThreshold create(MetricThreshold metricThreshold, String s) {
                 return metricThreshold
             }
 
@@ -122,20 +107,10 @@ class DefaultThresholdServiceTest {
             }
 
             @Override
-            MetricThreshold update(String s, MetricThreshold metricThreshold, String s1) {
-                return null
-            }
-
-            @Override
             MetricThreshold delete(String s) {
                 if(s == "1")
                     return list()[0]
                 return null
-            }
-
-            @Override
-            MetricThreshold delete(String s, String s1) {
-                delete(s)
             }
 
             @Override

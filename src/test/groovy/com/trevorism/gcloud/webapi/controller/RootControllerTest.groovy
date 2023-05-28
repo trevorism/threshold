@@ -12,7 +12,6 @@ class RootControllerTest {
         RootController rootController = new RootController()
         assert rootController.index().getBody().get()[0].contains("ping")
         assert rootController.index().getBody().get()[1].contains("help")
-
     }
 
     @Test
