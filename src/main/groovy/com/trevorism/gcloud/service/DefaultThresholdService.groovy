@@ -78,7 +78,7 @@ class DefaultThresholdService implements ThresholdService{
         }
 
         if(operator == ">"){
-            return metricValue < thresholdValue
+            return metricValue > thresholdValue
         }
 
         if(operator == "!=" || operator == "<>"){
