@@ -84,6 +84,11 @@ class DefaultThresholdServiceTest {
         return new Repository<MetricThreshold>() {
 
             @Override
+            List<MetricThreshold> all() {
+                return list()
+            }
+
+            @Override
             List<MetricThreshold> list() {
                 [new MetricThreshold(id: "1", name: "test", operator: "<=", value: 9000),new MetricThreshold(id: "2", name: "heartbeat", operator: ">=", value: 130)]
             }

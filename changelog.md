@@ -1,3 +1,7 @@
+## 0.8.0
+
+Update dependencies and send test and deploy events
+
 ## 0.7.0
 
 Improve bean wiring and upgrade dependencies

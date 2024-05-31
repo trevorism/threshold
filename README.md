@@ -9,7 +9,7 @@ Threshold allows users to establish KPIs and evaluate current state over a REST 
 Creating a threshold will add an endpoint that can be checked by clients of the service by creating an evaluation.
 One can create multiple thresholds with the same name to evaluate complex situations.
 
-Current Version: 0.7.0
+Current Version: 0.8.0
 
 Deployed to [Threshold](https://threshold.action.trevorism.com)
 
