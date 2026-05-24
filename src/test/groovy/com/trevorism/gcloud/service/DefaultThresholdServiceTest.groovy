@@ -2,8 +2,10 @@ package com.trevorism.gcloud.service
 
 import com.trevorism.data.Repository
 import com.trevorism.data.model.filtering.ComplexFilter
+import com.trevorism.data.model.filtering.SimpleFilter
 import com.trevorism.data.model.paging.PageRequest
 import com.trevorism.data.model.sorting.ComplexSort
+import com.trevorism.data.model.sorting.Sort
 import com.trevorism.gcloud.model.MetricThreshold
 import com.trevorism.https.SecureHttpClient
 import org.junit.jupiter.api.BeforeEach
@@ -127,6 +129,16 @@ class DefaultThresholdServiceTest {
             @Override
             List<MetricThreshold> filter(ComplexFilter complexFilter) {
                 return list().findAll{ it.name.toLowerCase() == complexFilter.getSimpleFilters()[0].value}
+            }
+
+            @Override
+            List<MetricThreshold> filter(SimpleFilter simpleFilter) {
+                return list().findAll{ it.name.toLowerCase() == simpleFiltervalue}
+            }
+
+            @Override
+            List<MetricThreshold> sort(Sort sort) {
+                return null
             }
 
             @Override
