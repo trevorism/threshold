@@ -27,5 +27,3 @@ jobs:
   call-cypress:
     if: ${{inputs.TEST_TYPE == 'cypress'}}
     uses: trevorism/actions-workflows/.github/workflows/cypress.yml@master
-    with:
-      JDK_VERSION: 25
