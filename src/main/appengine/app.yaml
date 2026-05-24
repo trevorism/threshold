@@ -1,4 +1,4 @@
-runtime: java17
+runtime: java25
 service: threshold
 entrypoint: java -jar threshold-all.jar
 handlers:
