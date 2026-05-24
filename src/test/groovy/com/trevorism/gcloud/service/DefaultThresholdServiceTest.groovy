@@ -133,7 +133,7 @@ class DefaultThresholdServiceTest {
 
             @Override
             List<MetricThreshold> filter(SimpleFilter simpleFilter) {
-                return list().findAll{ it.name.toLowerCase() == simpleFiltervalue}
+                return list().findAll{ it.name.toLowerCase() == simpleFilter.value}
             }
 
             @Override
